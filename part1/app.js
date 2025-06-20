@@ -1,5 +1,4 @@
 // app.js
-console.log("Running seed.js");
 const express = require('express');
 const pool = require('./db');
 const seed = require('./seed');
@@ -15,7 +14,5 @@ app.use('/api', apiRoutes);
 seed(pool);
 
 app.listen(PORT, () => {
-    console.log("Seeding complete");
   console.log(`Server running at http://localhost:${PORT}`);
-
 });
