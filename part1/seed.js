@@ -73,9 +73,6 @@ module.exports = async function seed(pool) {
     `);
 
     // Confirm data was inserted
-    const [rows] = await pool.query("SELECT * FROM Users");
-    console.log("👀 Current users in DB:", rows);
-
     console.log("Seed data inserted.");
   } catch (err) {
     console.error("Seed failed:", err);
