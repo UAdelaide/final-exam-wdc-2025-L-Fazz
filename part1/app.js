@@ -8,7 +8,7 @@ const app = express();
 const PORT = 3000;
 
 app.use(express.json());
-app.use(express.static('pub'));
+app.use(express.static('public'));
 app.use('/api', apiRoutes);
 
 // Seed data on startup
