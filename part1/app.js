@@ -17,4 +17,8 @@ seed(pool);
 app.listen(PORT, () => {
     console.log("Seeding complete");
   console.log(`Server running at http://localhost:${PORT}`);
+
+const [rows] = await pool.query("SELECT * FROM Users");
+console.log("👀 Current users in DB:", rows);
+
 });
