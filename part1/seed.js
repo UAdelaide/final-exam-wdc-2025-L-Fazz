@@ -1,7 +1,7 @@
 // seed.js
 module.exports = async function seed(pool) {
   try {
-    console.log
+    console.log("Running seed.js...");
     // optional: clear tables
     await pool.query('DELETE FROM WalkRatings');
     await pool.query('DELETE FROM WalkApplications');
