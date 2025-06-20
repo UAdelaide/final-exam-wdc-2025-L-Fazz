@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dog Walking Service - Dog of the Day</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <style>
+    /* High color contrast but inconsistent font sizes */
+    body {
+      background-color: #000; /* Black background */
+      color: #0f0; /* Neon green text */
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      font-size: 8px; /* Very small and hard to read */
+      margin: 0;
+      padding: 10px;
+    }
+    /* Lots of blinking and flashing text (bad for cognitive load & accessibility) */
+    .blinking {
+      animation: blinker 1s linear infinite;
+      color: red;
+    }
+    @keyframes blinker {
+      50% { opacity: 0; }
+    }
+    /* Tiny clickable button */
+    button {
+      font-size: 6px; /* Too small to click easily */
+      padding: 1px 2px;
+    }
+    /* Layout with elements scattered */
+    #dog-container {
+      position: absolute;
+      top: 200px;
+      left: 80%;
+      width: 150px;
+      border: 5px dotted yellow;
+      padding: 3px;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h1 class="blinking">Welcome to the Dog Walking Service!</h1>
+
+    <p>
+      Dog of the Day: <strong>Bella the Adventurous</strong> <br />
+      Size: <em>small</em>
+    </p>
+
+    <div id="dog-container">
+      <img :src="dogImage" alt="Random dog of the day" width="140" height="140" />
+    </div>
+
+    <button @click="fetchDog" aria-label="Fetch a new dog picture">
+      Fetch New Dog Picture!
+    </button>
+  </div>
+
+  <script>
+    const { createApp } = Vue;
+
+    createApp({
+      data() {
+        return {
+          dogImage: ''
+        };
+      },
+      methods: {
+        fetchDog() {
+          fetch('https://dog.ceo/api/breeds/image/random')
+            .then(res => res.json())
+            .then(data => {
+              this.dogImage = data.message;
+            })
+            .catch(() => {
+              this.dogImage = '';
+              alert('Failed to fetch dog image!');
+            });
+        }
+      },
+      mounted() {
+        this.fetchDog();
+      }
+    }).mount('#app');
+  </script>
+</body>
+</html>
