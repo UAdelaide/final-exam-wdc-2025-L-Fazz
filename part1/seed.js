@@ -38,8 +38,8 @@ module.exports = async function seed(pool) {
       (2, (SELECT user_id FROM Users WHERE username='bobwalker'), (SELECT user_id FROM Users WHERE username='carol123'), 5, 'Great walk!');
     `);
 
-    console.log("✅ Seed data inserted.");
+    console.log("Seed data inserted.");
   } catch (err) {
-    console.error("❌ Seed failed:", err);
+    console.error("Seed failed:", err);
   }
 };
