@@ -15,5 +15,6 @@ app.use('/api', apiRoutes);
 seed(pool);
 
 app.listen(PORT, () => {
+    console.log(Seeding complete)
   console.log(`Server running at http://localhost:${PORT}`);
 });
