@@ -1,5 +1,5 @@
 // app.js
-console.log()
+console.log("Running seed.js");
 const express = require('express');
 const pool = require('./db');
 const seed = require('./seed');
