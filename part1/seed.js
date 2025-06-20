@@ -40,7 +40,7 @@ module.exports = async function seed(pool) {
     `);
 
 
-    
+    const [rows] = await pool.query("")
     console.log("Seed data inserted.");
   } catch (err) {
     console.error("Seed failed:", err);
