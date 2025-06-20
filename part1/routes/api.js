@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../db');
+const seed = require()
 
 // GET /api/dogs
 router.get('/dogs', async (req, res) => {
