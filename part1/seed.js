@@ -1,6 +1,6 @@
 module.exports = async function seed(pool) {
   try {
-    console.log("🌱 Running seed.js...");
+    console.log("Running seed.js...");
 
     // Optional: clear tables
     await pool.query('DELETE FROM WalkRatings');
@@ -84,7 +84,7 @@ module.exports = async function seed(pool) {
       );
     `);
 
-    // ✅ Confirm data was inserted
+    // Confirm data was inserted
     const [rows] = await pool.query("SELECT * FROM Users");
     console.log("👀 Current users in DB:", rows);
 
