@@ -72,6 +72,18 @@ module.exports = async function seed(pool) {
         );
     `);
 
+    // Optional: insert a rating for completed request (request_id = 2)
+    await pool.query(`
+      INSERT INTO WalkRatings (request_id, walker_id, owner_id, rating, comments)
+      VALUES (
+        2,
+        (SELECT user_id FROM Users WHERE username = 'bobwalker'),
+        (SELECT user_id FROM Users WHERE username = 'carol123'),
+        5,
+        'Great walk!'
+      );
+    `);
+
     // Confirm data was inserted
     const [rows] = await pool.query("SELECT * FROM Users");
     console.log("👀 Current users in DB:", rows);
