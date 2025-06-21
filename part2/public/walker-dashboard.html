@@ -8,10 +8,8 @@
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body class="bg-light">
-  <div id="app" class="d-flex justify-content-between align-items-center mb-4 container py-4">
-    <h1 class="text-primary">Walker Dashboard</h1>
-    <button @click="logout" class="btn btn-danger">Logout</button>
-  </div>
+  <div id="app" class="container py-4">
+    <h1 class="mb-4 text-success">Walker Dashboard</h1>
 
     <!-- Alert messages -->
     <div v-if="message" class="alert alert-info">{{ message }}</div>
