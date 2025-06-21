@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// NEW ROUTE: Get dogs owned by the logged-in owner
+// GET dogs owned (by logged-in owner)
 router.get('/owner-dogs', async (req, res) => {
   if (!req.session.user) {
     return res.status(401).json({ error: 'Not logged in' });
